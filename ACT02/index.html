@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Black Bulls: Squad Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #0d0d0d;
+            background-image: url("Assets/BG.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e8e8e8;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            color: #e8e8e8;
+            border-color: #7a1f1f;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            z-index: 1;
+        }
+
+        .card-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .card-video {
+            opacity: 1;
+        }
+
+        .card-img-top {
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .name {
+            color: #d4af37;
+        }
+
+        .label {
+            color: #e04646;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="text-center mb-4">
+            <h1 class="title fw-bold">Black Bulls</h1>
+            <p class="text-secondary">Meet the Misfit Squad of the Clover Kingdom.</p>
+        </div>
+        <div class="row g-4" id="parent">
+
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var members = [
+            {
+                name: "Asta",
+                image: "Assets/ASTA.jpg",
+                video: "Assets/ASTA.mp4",
+                position: "Magic Knight",
+                magic: "Anti-Magic",
+                grimoire: "Five-leaf clover grimoire of Anti-Magic",
+                powers: "Wields the Demon-Slayer, Demon-Dweller, and Demon-Destroyer swords that cancel magic.",
+                profile: "Born without any mana, he trains relentlessly to become the Wizard King."
+            }, {
+                name: "Yami Sukehiro",
+                image: "Assets/YAMI.jpg",
+                video: "Assets/YAMI.mp4",
+                position: "Captain",
+                magic: "Dark Magic",
+                grimoire: "Grimoire of Dark Magic",
+                powers: "Fights with a sword and Dark Cloaked Dimension Slash, a spell that cuts through space.",
+                profile: "The blunt, fearless captain who recruits misfits from all over the kingdom."
+            }, {
+                name: "Nacht Faust",
+                image: "Assets/NACHT.jpg",
+                video: "Assets/NACHT.mp4",
+                position: "Vice-Captain",
+                magic: "Shadow Magic",
+                grimoire: "Grimoire of Shadow Magic",
+                powers: "Spreads shadow clones of himself across the battlefield to attack and support.",
+                profile: "The pragmatic and logical vice-captain who keeps the squad in line."
+            }, {
+                name: "Noelle Silva",
+                image: "Assets/NOELLE.jpg",
+                video: "Assets/NOELLE.mp4",
+                position: "Magic Knight",
+                magic: "Water Magic",
+                grimoire: "Grimoire of Water Magic",
+                powers: "Forms the Valkyrie Armor and works with the water spirit Undine.",
+                profile: "A royal from the Silva family who struggles to control her magic at first."
+            }, {
+                name: "Finral Roulacase",
+                image: "Assets/FINRAL.jpg",
+                video: "Assets/FINRAL.mp4",
+                position: "Magic Knight",
+                magic: "Spatial Magic",
+                grimoire: "Grimoire of Spatial Magic",
+                powers: "Opens portals to teleport himself and his allies across long distances.",
+                profile: "Born into the noble Roulacase family and always the squad's ride home."
+            }, {
+                name: "Luck Voltia",
+                image: "Assets/LUCK.jpg",
+                video: "Assets/LUCK.mp4",
+                position: "Magic Knight",
+                magic: "Lightning Magic",
+                grimoire: "Grimoire of Lightning Magic",
+                powers: "Strikes with fast lightning attacks and has strong sensing abilities.",
+                profile: "Known as the Cheery Berserker, he lives for a good fight."
+            }, {
+                name: "Magna Swing",
+                image: "Assets/MAGNA.jpg",
+                video: "Assets/MAGNA.mp4",
+                position: "Magic Knight",
+                magic: "Fire Magic",
+                grimoire: "Grimoire of Fire Magic",
+                powers: "Uses powerful fire attacks in close and long-range combat.",
+                profile: "One of Yami's earliest recruits, hot-headed but fiercely loyal."
+            }, {
+                name: "Vanessa Enoteca",
+                image: "Assets/VANESSA.jpg",
+                video: "Assets/VANESSA.mp4",
+                position: "Magic Knight",
+                magic: "Thread Magic",
+                grimoire: "Grimoire of Thread Magic",
+                powers: "Weaves magical threads to bind enemies, protect allies, and see their fates.",
+                profile: "The elegant older sister figure of the squad who loves a good drink."
+            }, {
+                name: "Charmy Pappitson",
+                image: "Assets/CHARMY.jpg",
+                video: "Assets/CHARMY.mp4",
+                position: "Magic Knight",
+                magic: "Cotton Magic",
+                grimoire: "Grimoire of Cotton Magic",
+                powers: "Creates cotton creatures and cooks food that restores her allies' mana.",
+                profile: "A tiny girl with a giant appetite who is always hungry."
+            }, {
+                name: "Secre Swallowtail",
+                image: "Assets/NERO.jpg",
+                video: "Assets/NERO.mp4",
+                position: "Magic Knight",
+                magic: "Sealing Magic",
+                grimoire: "Grimoire of Sealing Magic",
+                powers: "Seals enemy attacks and wounds with magical runes.",
+                profile: "A shy support mage whose magic is vital in the hardest battles."
+            }, {
+                name: "Gauche Adlai",
+                image: "Assets/GAUCHE.jpg",
+                video: "Assets/GAUCHE.mp4",
+                position: "Magic Knight",
+                magic: "Mirror Magic",
+                grimoire: "Grimoire of Mirror Magic",
+                powers: "Uses mirrors to reflect attacks and shift the battlefield.",
+                profile: "Fiercely protective of his younger sister, Marie."
+            }, {
+                name: "Zora Ideale",
+                image: "Assets/ZORA.jpg",
+                video: "Assets/ZORA.mp4",
+                position: "Magic Knight",
+                magic: "Ash Magic",
+                grimoire: "Grimoire of Ash Magic",
+                powers: "Sets up ash traps that catch enemies off guard.",
+                profile: "A cunning fighter who prefers tricks over brute force."
+            }, {
+                name: "Gordon Agrippa",
+                image: "Assets/GORDON.jpg",
+                video: "Assets/GORDON.mp4",
+                position: "Magic Knight",
+                magic: "Poison Magic",
+                grimoire: "Grimoire of Poison Magic",
+                powers: "Creates poisons that weaken or defeat opponents.",
+                profile: "Painfully shy, but deadly once he gathers his courage."
+            }, {
+                name: "Grey",
+                image: "Assets/GREY.jpg",
+                video: "Assets/GREY.mp4",
+                position: "Magic Knight",
+                magic: "Transformation Magic",
+                grimoire: "Grimoire of Transformation Magic",
+                powers: "Changes her appearance to disguise herself and helps heal her allies' injuries.",
+                profile: "Shy and easily frightened, but a vital support for the squad."
+            }, {
+                name: "Henry Legolant",
+                image: "Assets/HENRY.jpg",
+                video: "Assets/HENRY.mp4",
+                position: "Magic Knight",
+                magic: "Magic Gathering",
+                grimoire: "Grimoire of Magic Gathering",
+                powers: "Gathers other mages' magic and rearranges the Black Bulls' base into The Raging Black Bull.",
+                profile: "Uses so much magic in big battles that he needs long rests afterward."
+            }
+        ]
+
+        var parent = document.getElementById("parent");
+
+        for (var i = 0; i < members.length; i++) {
+            parent.innerHTML += `
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 col-xxl-3">
+                    <div class="card h-100 shadow rounded-3 border border-1" onmouseenter="this.getElementsByTagName('video')[0].play()" onmouseleave="this.getElementsByTagName('video')[0].pause()">
+            <img src="` + members[i].image + `" class="card-img-top" alt="` + members[i].name + `">
+            <video class="card-video" src="` + members[i].video + `" muted loop preload="none"></video>
+            <div class="card-body d-flex flex-column">
+              <div class="name h4">` + members[i].name + `</div>
+              <div class="mb-3">
+                <span class="badge text-bg-danger">` + members[i].position + `</span>
+              </div>
+              <div class="mb-2"><span class="label">Magic:</span> ` + members[i].magic + `</div>
+              <div class="mb-2"><span class="label">Grimoire:</span> ` + members[i].grimoire + `</div>
+              <div class="mb-2"><span class="label">Powers:</span> ` + members[i].powers + `</div>
+              <div class="mt-auto pt-2 small text-secondary">` + members[i].profile + `</div>
+            </div>
+          </div>
+        </div>
+      `;
+        }
+    </script>
+
+</body>
+
+</html>
